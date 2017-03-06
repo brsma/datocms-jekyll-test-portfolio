@@ -4,7 +4,14 @@
   min-height: 100vh
 
 .sheet__inner
-  max-width: 600px
+  max-width: 768px
+  margin-left: auto
+  margin-right: auto
+
+.sheet__cover
+  max-height: 35vh
+  overflow: hidden
+  margin: 0 auto $grid*4
 
 .sheet__title
   font-size: $title-size
@@ -20,6 +27,22 @@
 .sheet__gallery,
 .sheet__slider
   margin-bottom: $grid * 4
+
+.sheet__gallery
+  display: flex
+  flex-flow: row wrap
+  padding: $grid
+  background-color: $content-bg-color
+  .tile
+    // height: 160px
+    width: 25%
+    height: 25vh
+    overflow: hidden
+    padding: $grid/2
+    flex: 0 1 33%
+    img
+      width: 100%
+      height: auto
 
 .sheet__body
   color: $light-body-color

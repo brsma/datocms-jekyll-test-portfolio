@@ -3,44 +3,54 @@ layout: default
 ---
 
 <article class="sheet">
-  <div class="sheet__inner">
-    <h1 class="sheet__title">{{ page.title }}</h1>
-    <h2 class="sheet__subtitle">{{ page.subtitle }}</h2>
-    {% if page.summary %}
-    <h3>Summary</h3>
-    <p class="sheet__lead">{{ page.summary | markdownify }}</p>
-    {% endif %}
-    {% if page.client %}
-    <p class="sheet__lead">Client: {{ page.client }}</p>
-    {% endif %}
-    <p><a href="{{ page.project_url }}">{{ page.project_url }}</a></p>
-
-    <!--
-    <div class="sheet__slider">
-      <div class="slider js_slider">
-        <div class="slider__frame js_frame">
-          <ul class="slider__slides js_slides">
-            {% for image in page.extra_images %}
-              <li class="slider__slide js_slide">
-                <img src="{{ image }}">
-              </li>
-            {% endfor %}
-          </ul>
+    <div class="sheet__inner">
+      <header>
+        {% if page.detail_image %}
+        <div class="sheet__cover">
+            <img src="{{ page.detail_image }}" />
         </div>
-        <span class="slider__prev js_prev"></span>
-        <span class="slider__next js_next"></span>
-      </div>
+        {% endif %}
+        <h1 class="sheet__title">{{ page.title }}</h1>
+        <h2 class="sheet__subtitle">{{ page.subtitle }}</h2> {% if page.summary %}
+        <h3>Summary</h3>
+        <p class="sheet__lead">{{ page.summary | markdownify }}</p>
+        {% endif %}
+        {% if page.client %}
+        <p class="sheet__lead">Client: {{ page.client }}</p>
+        {% endif %}
+        <p><a href="{{ page.project_url }}">{{ page.project_url }}</a></p>
+      </header>
+        <!-- {% if page.extra_images  %}
+        <div class="sheet__slider">
+            <div class="slider js_slider">
+                <div class="slider__frame js_frame">
+                    <ul class="slider__slides js_slides">
+                        {% for image in page.extra_images %}
+                        <li class="slider__slide js_slide">
+                            <img src="{{ image }}">
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <span class="slider__prev js_prev"></span>
+                <span class="slider__next js_next"></span>
+            </div>
+        </div>
+        {% endif %} -->
+
+        <div class="sheet__body">
+            {{ page.content | markdownify }}
+        </div>
+
+        {% if page.extra_images  %}
+        <section class="sheet__gallery">
+          {% for image in page.extra_images %}
+          <div class="tile">
+              <img src="{{ image }}">
+          </div>
+          {% endfor %}
+        </section>
+        {% endif %}
+
     </div>
-     -->
-     {% if page.content %}
-    <div class="sheet__body">
-      {{ page.content | markdownify }}
-    </div>
-    {% endif %}
-    {% if page.detail_image %}
-    <div class="sheet__gallery">
-      <img src="{{ page.detail_image }}" />
-    </div>
-    {% endif %}
-  </div>
 </article>
