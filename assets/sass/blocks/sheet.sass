@@ -1,5 +1,5 @@
 .sheet
-  padding: ($grid * 4) ($grid * 3)
+  padding: ($grid * 0) ($grid * 4)
   background-color: $sheet-bg-color
   min-height: 100vh
 
@@ -18,11 +18,18 @@
   margin-bottom: $grid * 4
   font-weight: bold
   color: $dark-body-color
-  line-height: 1
+  line-height: 1.67em
+
+.sheet__subtitle
+  font-size: $subtitle-size
+  margin-bottom: $grid * 4
+  font-weight: 500
+  color: $dark-body-color
+  line-height: 1.67em
 
 .sheet__lead
   font-size: $lead-size
-  margin-bottom: $baseline
+  margin-bottom: $grid*4
 
 .sheet__gallery,
 .sheet__slider
@@ -45,18 +52,19 @@
       height: auto
 
 .sheet__body
-  color: $light-body-color
-  font-size: $smaller
+  color: $text-color
   margin-bottom: $grid * 4
 
   h1, h2, h3, h4, h5, h6, p, blockquote, pre, ul, ol
-    margin-bottom: $grid * 2
+    margin-bottom: $grid * 4
+    line-height: 1.67em
+
 
     &:last-child
       margin-bottom: 0
 
   h1, h2, h3, h4, h5, h6
-    font-weight: bold
+    font-weight: 500
     margin-top: $grid * 4
     color: $dark-body-color
 
@@ -80,26 +88,30 @@
     list-style-type: disc
 
   blockquote
-    border-left: ($grid / 2) solid $active-color
+    border-left: ($grid / 2) solid $text-color-muted
     font-size: $blockquote-size
-    padding: 20px
+    color: $text-color-light
+    padding: 0 $grid*4
+    width: 85%
+    margin-left: auto
+    margin-right: auto
 
-@media screen and (min-width: 900px)
+@media screen and (min-width: $SCREEN-M)
   .sheet
     padding: 40px 60px
 
   .sheet__title
-    font-size: 48px
+    // font-size: 48px
 
   .sheet__lead
-    font-size: 20px
+    // font-size: 20px
 
   .sheet__body
-    font-size: 16px
+    // font-size: 16px
 
     blockquote
-      padding-left: 40px
+      // padding-left: 40px
 
-@media screen and (min-width: 1300px)
+@media screen and (min-width: $SCREEN-L)
   .sheet__slider
-    margin-right: -200px
+    // margin-right: -200px

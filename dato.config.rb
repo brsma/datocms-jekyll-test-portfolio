@@ -68,7 +68,7 @@ directory "src/_projects" do
           detail_image: (project.cover ? project.cover.url(w: 1980, fm: 'jpg', auto: 'compress') : ''),
           position: index,
           summary: project.summary,
-          seo_meta_tags: project.seo_meta_tags,
+          # seo_meta_tags: project.seo_meta_tags,
           extra_images: project.gallery.map do |image|
             image.url(w: 1024, fm: 'png', auto: 'compress')
           end

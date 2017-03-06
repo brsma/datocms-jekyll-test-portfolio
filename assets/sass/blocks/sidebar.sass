@@ -1,5 +1,5 @@
 .sidebar__title
-  margin-bottom: 20px
+  margin: $grid*4 0
 
   a
     font-size: $title-size
@@ -12,18 +12,21 @@
 .sidebar__intro
   color: $light-body-color
   font-size: $blockquote-size
+  line-height: 1.67em
   font-weight: 300
-  margin-bottom: 1rem
+  margin-top: $grid*8
+  margin-bottom: $grid*4
 
   p
-    margin-bottom: 1rem
+    margin-bottom: $grid*4
 
     &:last-child
       margin-bottom: 0
 
 .sidebar__menu
-  margin-bottom: 2rem
-  font-size: 2rem
+  margin-bottom: $grid*4
+  font-size: $header-size
+  line-height: 1.67em
   font-weight: 500
   li
     a

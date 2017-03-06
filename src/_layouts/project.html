@@ -12,14 +12,29 @@ layout: default
         {% endif %}
         <h1 class="sheet__title">{{ page.title }}</h1>
         <h2 class="sheet__subtitle">{{ page.subtitle }}</h2> {% if page.summary %}
-        <h3>Summary</h3>
-        <p class="sheet__lead">{{ page.summary | markdownify }}</p>
-        {% endif %}
-        {% if page.client %}
-        <p class="sheet__lead">Client: {{ page.client }}</p>
-        {% endif %}
-        <p><a href="{{ page.project_url }}">{{ page.project_url }}</a></p>
-      </header>
+        </header>
+        <section class="sheet__body">
+          <h3>Summary</h3>
+          <p class="sheet__lead">{{ page.summary | markdownify }}</p>
+          {% endif %}
+          {% if page.client %}
+          <p class="sheet__lead"><em>Client</em> {{ page.client }}</p>
+          {% endif %}
+          {% if page.project_url %}
+          <p><a href="{{ page.project_url }}"><em>URL</em> {{ page.project_url }}</a></p>
+          {% endif %}
+
+            {{ page.content | markdownify }}
+            {% if page.extra_images  %}
+            <section class="sheet__gallery">
+              {% for image in page.extra_images %}
+              <div class="tile">
+                  <img src="{{ image }}">
+              </div>
+              {% endfor %}
+            </section>
+            {% endif %}
+        </section>
         <!-- {% if page.extra_images  %}
         <div class="sheet__slider">
             <div class="slider js_slider">
@@ -38,19 +53,6 @@ layout: default
         </div>
         {% endif %} -->
 
-        <div class="sheet__body">
-            {{ page.content | markdownify }}
-        </div>
-
-        {% if page.extra_images  %}
-        <section class="sheet__gallery">
-          {% for image in page.extra_images %}
-          <div class="tile">
-              <img src="{{ image }}">
-          </div>
-          {% endfor %}
-        </section>
-        {% endif %}
 
     </div>
 </article>
