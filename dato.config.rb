@@ -24,7 +24,7 @@ create_post "src/index.md" do
   frontmatter :yaml, {
     seo_meta_tags: dato.home.seo_meta_tags,
     layout: 'home',
-    paginate: { collection: 'projects', per_page: 10 }
+    paginate: { collection: 'projects', per_page: 20 }
   }
 end
 
@@ -33,11 +33,10 @@ create_post "src/about.md" do
   frontmatter :yaml, {
     title: dato.about_page.title,
     subtitle: dato.about_page.subtitle,
-    photo: dato.about_page.photo.url(w: 800, fm: 'jpg', auto: 'compress'),
+    photo: dato.about_page.photo.url(w: 1024, fm: 'jpg', auto: 'compress'),
     layout: 'about',
     seo_meta_tags: dato.about_page.seo_meta_tags,
   }
-
   content dato.about_page.bio
 end
 
@@ -48,7 +47,6 @@ create_post "src/contact.md" do
     layout: 'contact',
     # seo_meta_tags: dato.contact_page.seo_meta_tags,
   }
-
   content dato.contact_page.contact_data
 end
 
@@ -76,6 +74,14 @@ directory "src/_projects" do
         content project.description
       end
   end
+end
+
+create_post "src/services.md" do
+  frontmatter :yaml, {
+    seo_meta_tags: dato.home.seo_meta_tags,
+    layout: 'services',
+    paginate: { collection: 'services', per_page: 20 }
+  }
 end
 
 # Create a `_services` directory (or empty it if already exists)...

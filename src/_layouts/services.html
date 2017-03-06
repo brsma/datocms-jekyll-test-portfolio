@@ -1,0 +1,26 @@
+---
+layout: default
+---
+
+<section class="services" {% if paginator.next_page_path %} data-next-url="{{ paginator.next_page_path }}" {% endif %}>
+    <header>
+        <h1>Services</h1>
+    </header>
+    <div>
+      {% for service in paginator.services %}
+      <article>
+          <figure>
+            {% if service.cover_image %}
+            <a href="{{ service.url }}">
+                <img src="{{ service.cover_image }}">
+            </a>
+            {% endif %}
+            <figcaption>
+              <h3><a href="{{ service.url }}">{{ service.title}}</a></h3>
+              <p>{{ service.description | markdownify }}</p>
+            </figcaption>
+          </figure>
+      </article>
+      {% endfor %}
+    </div>
+</section>

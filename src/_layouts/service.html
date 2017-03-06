@@ -2,30 +2,25 @@
 layout: default
 ---
 
-<section class="showcase"{% if paginator.next_page_path %} data-next-url="{{ paginator.next_page_path }}"{% endif %}>
-  <header>
-    <h1 class="section__header">Services</h1>
-  </header>
-  <div>
-    {% for service in paginator.services %}
-      <article class="showcase__item">
-        <figure class="card">
-          <a href="{{ service.url }}" class="card__image">
-            <img src="{{ service.cover_image }}">
-          </a>
-          <figcaption class="card__caption">
-            <h3 class="card__title">
-              <a href="{{ service.url }}">{{ service.title}}</a>
-            </h3>
-            <h6 class="card__subtitle">
-              <a href="{{ service.url }}">{{ service.subtitle | markdownify }}</a>
-            </h6>
-            <div class="card__description">
-              <p>{{ service.summary | markdownify }}</p>
-            </div>
-          </figcaption>
-        </figure>
-      </article>
-    {% endfor %}
-  </div>
-</section>
+<article class="sheet">
+    <div class="sheet__inner">
+      <header>
+        {% if page.detail_image %}
+        <div class="sheet__cover">
+            <img src="{{ page.detail_image }}" />
+        </div>
+        {% endif %}
+        <h1 class="sheet__title">{{ page.title }}</h1>
+        <h2 class="sheet__subtitle">{{ page.subtitle }}</h2>
+        </header>
+        <section class="sheet__body">
+          {% if page.summary %}
+          <h3>Summary</h3>
+          <p class="sheet__lead">{{ page.summary | markdownify }}</p>
+          {% endif %}
+          <p>
+            {{ page.content | markdownify }}
+          </p>
+        </section>
+    </div>
+</article>
