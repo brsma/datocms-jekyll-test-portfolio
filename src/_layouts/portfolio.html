@@ -1,0 +1,34 @@
+---
+layout: default
+---
+
+<section class="showcase"{% if paginator.next_page_path %} data-next-url="{{ paginator.next_page_path }}"{% endif %}>
+  <header>
+    <h1 class="section__header">Portfolio</h1>
+    <h3>Selected projects</h3>
+  </header>
+  <div>
+    {% for project in paginator.projects %}
+      <article class="showcase__item">
+        <figure class="card">
+          <a href="{{ project.url }}" class="card__image">
+            <img src="{{ project.cover_image }}">
+          </a>
+          <figcaption class="card__caption">
+            <h3 class="card__title">
+              <a href="{{ project.url }}">{{ project.title}}</a>
+            </h3>
+            <h6 class="card__subtitle">
+              <a href="{{ project.url }}">{{ project.subtitle | markdownify }}</a>
+            </h6>
+            <div class="card__description">
+              <p>{{ project.client }}</p>
+              <p>{{ project.summary | markdownify }}</p>
+              <p><a href="{{ project.project_url }}">{{ project.project_url }}</a></p>
+            </div>
+          </figcaption>
+        </figure>
+      </article>
+    {% endfor %}
+  </div>
+</section>

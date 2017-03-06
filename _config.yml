@@ -5,8 +5,6 @@ source: "src"
 destination: "public"
 
 collections:
-  works:
-    output: true
   projects:
     output: true
   recognitions:

@@ -57,23 +57,45 @@ directory "src/_projects" do
   # ...and for each of the works stored online...
   dato.projects.each_with_index do |project, index|
     # ...create a markdown file with all the metadata in the frontmatter
-      create_post "#{project.slug}.md" do
+      create_post "#{index}-#{project.slug}.md" do
         frontmatter :yaml, {
           layout: 'project',
           title: project.title,
           subtitle: project.subtitle,
           project_client: project.client,
           project_url: project.project_url,
-          cover_image: (project.cover ? project.cover.url(w: 480, fm: 'jpg', auto: 'compress') : ''),
-          detail_image: (project.cover ? project.cover.url(w: 1980, fm: 'jpg', auto: 'compress') : ''),
+          cover_image: (project.cover ? project.cover.url(w: 480, h: 240, dpr: 1, fm: 'jpg', q: 90, fit: 'crop,top,left', mono: '#1187C3') : ''),
+          detail_image: (project.cover ? project.cover.url(w: 1024, h: 480, dpr: 2, fm: 'png', fit: 'crop,top') : ''),
           position: index,
           summary: project.summary,
           # seo_meta_tags: project.seo_meta_tags,
           extra_images: project.gallery.map do |image|
-            image.url(w: 1024, fm: 'png', auto: 'compress')
+            image.url(w: 768, dpr: 2, fm: 'png')
           end
         }
         content project.description
+      end
+  end
+end
+
+# Create a `_services` directory (or empty it if already exists)...
+directory "src/_services" do
+  # ...and for each of the works stored online...
+  dato.services.each_with_index do |service, index|
+    # ...create a markdown file with all the metadata in the frontmatter
+      create_post "#{index}-#{service.slug}.md" do
+        frontmatter :yaml, {
+          layout: 'service',
+          title: service.title,
+          cover_image: (service.cover ? service.cover.url(w: 480, h: 240, dpr: 1, fm: 'jpg', q: 90, fit: 'crop,top,left', mono: '#1187C3') : ''),
+          detail_image: (service.cover ? service.cover.url(w: 1024, h: 480, dpr: 2, fm: 'png', fit: 'crop,top') : ''),
+          position: index
+          # seo_meta_tags: project.seo_meta_tags,
+          # extra_images: service.gallery.map do |image|
+          #   image.url(w: 768, dpr: 2, fm: 'png')
+          # end
+        }
+        content service.description
       end
   end
 end
