@@ -7,6 +7,8 @@ destination: "public"
 collections:
   projects:
     output: true
+  services:
+    output: true
   recognitions:
     output: true
 
