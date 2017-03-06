@@ -50,6 +50,14 @@ create_post "src/contact.md" do
   content dato.contact_page.contact_data
 end
 
+create_post "src/projects.md" do
+  frontmatter :yaml, {
+    seo_meta_tags: dato.home.seo_meta_tags,
+    layout: 'projects',
+    paginate: { collection: 'projects', per_page: 20 }
+  }
+end
+
 # Create a `_projects` directory (or empty it if already exists)...
 directory "src/_projects" do
   # ...and for each of the works stored online...
