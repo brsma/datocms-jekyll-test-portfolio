@@ -24,7 +24,7 @@ create_post "src/index.md" do
   frontmatter :yaml, {
     seo_meta_tags: dato.home.seo_meta_tags,
     layout: 'home',
-    paginate: { collection: 'works', per_page: 5 }
+    paginate: { collection: 'works', per_page: 10 }
   }
 end
 
@@ -63,4 +63,15 @@ directory "src/_works" do
       content work.description
     end
   end
+end
+
+# Create a markdown file from the content of the `about_page` item type
+create_post "src/contact.md" do
+  frontmatter :yaml, {
+    title: dato.contact_page.title,
+    layout: 'contact',
+    # seo_meta_tags: dato.contact_page.seo_meta_tags,
+  }
+
+  content dato.contact_page.contact_data
 end
