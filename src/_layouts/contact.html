@@ -3,14 +3,13 @@ layout: default
 ---
 
 <article class="sheet">
-  <div class="sheet__inner">
-    <h1 class="sheet__title">{{ page.title }}</h1>
-    <p class="sheet__lead">{{ page.subtitle }}</p>
-    <div class="sheet__gallery">
-      <img src="{{ page.photo }}" />
+    <div class="sheet__inner">
+        <h1 class="sheet__title">{{ page.title }}</h1>
     </div>
     <div class="sheet__body">
-      {{ page.content }}
+        <p class="sheet__lead">{{ page.content | markdownify }}</p>
+        <div class="sheet__map">
+          <iframe width="100%" height="420" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/view?zoom=17&center=52.5025%2C13.4122&key=AIzaSyCUC8vVIiLEyHKZgEFtnbosc0VrhuiSaic" allowfullscreen></iframe>
+        </div>
     </div>
-  </div>
 </article>

@@ -1,32 +1,36 @@
+.showcase
+  display: flex
+
 .showcase.is-loading
   visibility: hidden
 
 .showcase__item
-  margin-bottom: 30px
+  margin-bottom: $grid*4
+  box-sizing: border-box
+  width: 100%
 
-@media screen and (max-width: 400px)
+@media screen and (max-width: $SCREEN-XS)
   .showcase
-    margin: 0 15px
+    margin: 0 $grid*2
 
-@media screen and (min-width: 401px)
+@media screen and (min-width: $SCREEN-XS)
   .showcase
-    margin-right: 15px
+    margin-right: $grid*2
 
   .showcase__item
-    box-sizing: border-box
     width: (100% / 2)
-    float: left
-    padding-left: 15px
+    // float: left
+    padding-left: $grid*2
 
-@media screen and (min-width: 1400px)
+@media screen and (min-width: $SCREEN-S)
+  .showcase
+    padding: $grid*4 0 $grid
+    margin-right: $grid*4
+
+@media screen and (min-width: $SCREEN-M)
+  .showcase__item
+    padding-left: $grid*4
+
+@media screen and (min-width: $SCREEN-L)
   .showcase__item
     width: (100% / 3)
-
-@media screen and (min-width: 900px)
-  .showcase
-    padding: 40px 0 10px
-    margin-right: 40px
-
-@media screen and (min-width: 1100px)
-  .showcase__item
-    padding-left: 40px

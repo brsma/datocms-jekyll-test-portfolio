@@ -1,14 +1,22 @@
 .social
+  box-sizing: border-box
   display: inline-block
-  width: 35px
-  height: 35px
+  width: 25px
+  height: 25px
   vertical-align: middle
-  border: 1px solid $border-color
+  border: .5px solid $base-body-color
   border-radius: 50%
   background-position: 50% 50%
-  background-size: 40%
+  background-size: 50%
   background-repeat: no-repeat
-  margin-bottom: 10px
+  margin-bottom: 1rem
+  margin-right: 0.5rem
+  transition: background-size 0.15s ease-out
+  &:hover, &:active
+    background-size: 66%
+    border-color: mix($active-color, $sidebar-bg-color, 35%)
+    background-color: mix($active-color, $sidebar-bg-color, 15%)
+    transition: background-size 0.08s ease-out
 
 .social--facebook
   background-image: url('https://cdn.rawgit.com/encharm/Font-Awesome-SVG-PNG/master/black/svg/facebook-f.svg')
@@ -40,7 +48,7 @@
 .social--email
   background-image: url('https://cdn.rawgit.com/encharm/Font-Awesome-SVG-PNG/master/black/svg/envelope.svg')
 
-@media screen and (min-width: 900px)
+@media screen and (min-width: $SCREEN-M)
   .social
-    width: 40px
-    height: 40px
+    width: 50px
+    height: 50px

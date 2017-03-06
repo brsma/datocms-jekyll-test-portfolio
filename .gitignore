@@ -1,9 +1,13 @@
 .env
 .jekyll-metadata
 npm-debug.log
+node_modules/*
 src/_data
 src/_works
+src/_projects
 src/about.md
+src/contact.md
 src/index.md
 src/assets
 public
+.DS_Store

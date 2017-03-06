@@ -1,53 +1,54 @@
 .sheet
-  padding: 40px 20px
-  background-color: white
+  padding: ($grid * 4) ($grid * 3)
+  background-color: $sheet-bg-color
+  min-height: 100vh
 
 .sheet__inner
   max-width: 600px
 
 .sheet__title
-  font-size: 30px
-  margin-bottom: 30px
+  font-size: $title-size
+  margin-bottom: $grid * 4
   font-weight: bold
   color: $dark-body-color
   line-height: 1
 
 .sheet__lead
-  font-size: 16px
-  margin-bottom: 30px
+  font-size: $lead-size
+  margin-bottom: $baseline
 
 .sheet__gallery,
 .sheet__slider
-  margin-bottom: 30px
+  margin-bottom: $grid * 4
 
 .sheet__body
   color: $light-body-color
-  font-size: 14px
-  margin-bottom: 30px
+  font-size: $smaller
+  margin-bottom: $grid * 4
 
   h1, h2, h3, h4, h5, h6, p, blockquote, pre, ul, ol
-    margin-bottom: 20px
+    margin-bottom: $grid * 2
 
     &:last-child
       margin-bottom: 0
 
   h1, h2, h3, h4, h5, h6
     font-weight: bold
-    margin-top: 40px
+    margin-top: $grid * 4
     color: $dark-body-color
 
   h1
-    font-size: 3em
+    font-size: $title-size
 
   h2
-    font-size: 2em
+    font-size: $subtitle-size
 
   h3
-    font-size: 1.5em
+    font-size: $header-size
 
   li
-    margin-left: 20px
-    margin-bottom: 5px
+    margin-left: $grid * 3
+    margin-bottom: $grid
 
   ol li
     list-style-type: decimal
@@ -56,8 +57,8 @@
     list-style-type: disc
 
   blockquote
-    border-left: 4px solid $active-color
-    font-size: 1.1em
+    border-left: ($grid / 2) solid $active-color
+    font-size: $blockquote-size
     padding: 20px
 
 @media screen and (min-width: 900px)

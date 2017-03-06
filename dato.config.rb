@@ -24,7 +24,7 @@ create_post "src/index.md" do
   frontmatter :yaml, {
     seo_meta_tags: dato.home.seo_meta_tags,
     layout: 'home',
-    paginate: { collection: 'works', per_page: 10 }
+    paginate: { collection: 'projects', per_page: 10 }
   }
 end
 
@@ -39,6 +39,17 @@ create_post "src/about.md" do
   }
 
   content dato.about_page.bio
+end
+
+# Create a markdown file from the content of the `about_page` item type
+create_post "src/contact.md" do
+  frontmatter :yaml, {
+    title: dato.contact_page.title,
+    layout: 'contact',
+    # seo_meta_tags: dato.contact_page.seo_meta_tags,
+  }
+
+  content dato.contact_page.contact_data
 end
 
 # Create a `_works` directory (or empty it if already exists)...
@@ -65,13 +76,29 @@ directory "src/_works" do
   end
 end
 
-# Create a markdown file from the content of the `about_page` item type
-create_post "src/contact.md" do
-  frontmatter :yaml, {
-    title: dato.contact_page.title,
-    layout: 'contact',
-    # seo_meta_tags: dato.contact_page.seo_meta_tags,
-  }
+# Create a `_works` directory (or empty it if already exists)...
+directory "src/_projects" do
+  # ...and for each of the works stored online...
+  dato.projects.each_with_index do |project, index|
+    # ...create a markdown file with all the metadata in the frontmatter
+    create_post "#{project.slug}.md" do
+      frontmatter :yaml, {
+        layout: 'project',
+        title: project.title,
+        subtitle: project.subtitle,
+        project_client: project.client,
+        project_url: project.project_url,
+        cover_image: project.cover_image.url(w: 768, fm: 'jpg', auto: 'compress'),
+        detail_image: project.cover_image.url(w: 1440, fm: 'jpg', auto: 'compress'),
+        position: index,
+        summary: project.summary,
+        # seo_meta_tags: project.seo_meta_tags,
+        extra_images: project.gallery.map do |image|
+          image.url(h: 320, fm: 'jpg', auto: 'compress')
+        end
+      }
 
-  content dato.contact_page.contact_data
+      content project.description
+    end
+  end
 end

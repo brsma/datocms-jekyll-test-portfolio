@@ -18,54 +18,60 @@
   </head>
   <body>
     <div class="container">
-      <div class="container__sidebar">
+      <aside class="container__sidebar">
         <div class="sidebar">
-          <h6 class="sidebar__title">
-            <a href="/index.html">{{ site.data.settings.name }}</a>
-          </h6>
+          <header>
+            <h1 class="sidebar__title">
+              <a href="/index.html">{{ site.data.settings.name }}</a>
+            </h1>
 
-          <div class="sidebar__intro">
-            {{ site.data.settings.intro | markdownify }}
-          </div>
+            <div class="sidebar__intro">
+              {{ site.data.settings.intro | markdownify }}
+            </div>
 
-          <ul class="sidebar__menu">
-            <li{% if page.url == "/"%} class="is-active"{% endif %}>
-              <a href="/">Home</a>
-            </li>
-            <li{% if page.url == "/about.html"%} class="is-active"{% endif %}>
-              <a href="/about.html">About</a>
-            </li>
-            <li{% if page.url == "/contact.html"%} class="is-active"{% endif %}>
-              <a href="/contact.html">Contact</a>
-            </li>
-          </ul>
+            <nav>
+              <ul class="sidebar__menu">
+                <li{% if page.url == "/"%} class="is-active"{% endif %}>
+                  <a href="/">Home</a>
+                </li>
+                <li{% if page.url == "/about.html"%} class="is-active"{% endif %}>
+                  <a href="/about.html">About</a>
+                </li>
+                <li{% if page.url == "/contact.html"%} class="is-active"{% endif %}>
+                  <a href="/contact.html">Contact</a>
+                </li>
+              </ul>
+            </nav>
+          </header>
 
-          <p class="sidebar__social">
-            {% for profile in site.data.settings.social_profiles %}
-              <a href="{{ profile.url }}" class="social social--{{ profile.type }}"></a>
-            {% endfor %}
-          </p>
+          <footer>
+            <nav class="sidebar__social">
+              {% for profile in site.data.settings.social_profiles %}
+                <a href="{{ profile.url }}" class="social social--{{ profile.type }}"></a>
+              {% endfor %}
+            </nav>
+            <div class="sidebar__copyright">
+                {{ site.data.settings.copyright }}
+            </div>
+          </footer>
 
-          <div class="sidebar__copyright">
-            {{ site.data.settings.copyright }}
-          </div>
         </div>
-      </div>
-      <div class="container__body">
-        <div class="container__mobile-header">
+      </aside>
+      <section class="container__body">
+        <header class="container__mobile-header">
           <div class="mobile-header">
             <div class="mobile-header__menu">
               <a href="#" data-js="toggleSidebar"></a>
             </div>
-            <div class="mobile-header__logo">
+            <h1 class="mobile-header__logo">
               <a href="/index.html">
                 {{ site.data.settings.name }}
               </a>
-            </div>
+            </h1>
           </div>
-        </div>
+        </header>
         {{ content }}
-      </div>
+      </section>
     </div>
 
     <script src="/assets/all.js"></script>

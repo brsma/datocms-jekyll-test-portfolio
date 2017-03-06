@@ -26,11 +26,22 @@ $pantone-black: #221F1D
 $pantone-cg-11: #414448
 $pantone-cg-7: #858789
 $pantone-cg-1: #D0D0CC
+$paper-white: #FFFFFF
 
-$light-bg-color: lighten($pantone-cg-1, 15)
+$sidebar-bg-color: mix($pantone-cg-1, $paper-white, 23%)
+$content-bg-color: mix($pantone-cg-1, $paper-white, 15%)
+$sheet-bg-color: mix($pantone-cg-1, $paper-white, 5%)
+$card-bg-color: mix($pantone-cg-1, $paper-white, 5%)
+$light-bg-color: $content-bg-color
 $dark-body-color: $pantone-black
 $base-body-color: $pantone-cg-11
 $light-body-color: $pantone-cg-7
-$active-color: $pantone-299
-$border-color: $pantone-cg-1
+$primary-color: $pantone-802
+$active-color: $primary-color
+$border-color: $base-body-color
 $drop-shadow-color: rgba(0,0,0,0.35)
+
+$text-color-muted: $light-body-color
+$text-color-light: $base-body-color
+$text-color: $dark-body-color
+$link-color: $active-color

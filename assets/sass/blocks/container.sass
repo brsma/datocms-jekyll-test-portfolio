@@ -1,30 +1,38 @@
-@media screen and (max-width: 899px)
+.container__sidebar
+  background-color: $sidebar-bg-color
+  height: 100vw
+
+.container__body--white
+  background-color: $content-bg-color
+
+
+@media screen and (max-width: 768px)
+  $container-width: 35vw
   .container__sidebar
     box-sizing: border-box
-    width: 200px
-    height: 100%
+    width: $container-width
     position: fixed
     top: 0
     right: 0
     bottom: 0
     left: 0
     z-index: 2
-    transform: translate3d(-200px, 0, 0)
+    transform: translate3d(-$container-width, 0, 0)
     transition: transform 0.2s ease-in-out
-    padding: 20px
-    background-color: $light-bg-color
+    padding: 2 * $grid
 
     .container.is-open &
-      transform: translate3d(0px, 0, 0);
+      transform: translate3d(0px, 0, 0)
 
   .container__body
+    background-color: $sheet-bg-color
     transform: translate3d(0px, 0, 0)
     transition: transform 0.2s ease-in-out
 
     .container.is-open &
-      transform: translate3d(200px, 0, 0)
+      transform: translate3d($container-width, 0, 0)
 
-@media screen and (min-width: 900px)
+@media screen and (min-width: 768px)
   .container
     display: flex
     padding: 0
@@ -34,14 +42,10 @@
 
   .container__sidebar
     display: block
-    width: 30%
+    width: 35vw
     min-width: 320px
     box-sizing: border-box
-    padding: 40px
-    background-color: $light-bg-color
+    padding: 4*$grid
 
   .container__body
     flex: 1
-
-  .container__body--white
-    background-color: white
