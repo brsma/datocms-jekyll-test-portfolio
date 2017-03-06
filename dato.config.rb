@@ -52,31 +52,7 @@ create_post "src/contact.md" do
   content dato.contact_page.contact_data
 end
 
-# Create a `_works` directory (or empty it if already exists)...
-directory "src/_works" do
-  # ...and for each of the works stored online...
-  dato.works.each_with_index do |work, index|
-    # ...create a markdown file with all the metadata in the frontmatter
-    create_post "#{work.slug}.md" do
-      frontmatter :yaml, {
-        layout: 'work',
-        title: work.title,
-        cover_image: work.cover_image.url(w: 450, fm: 'jpg', auto: 'compress'),
-        detail_image: work.cover_image.url(w: 600, fm: 'jpg', auto: 'compress'),
-        position: index,
-        excerpt: work.excerpt,
-        seo_meta_tags: work.seo_meta_tags,
-        extra_images: work.gallery.map do |image|
-          image.url(h: 300, fm: 'jpg', auto: 'compress')
-        end
-      }
-
-      content work.description
-    end
-  end
-end
-
-# Create a `_works` directory (or empty it if already exists)...
+# Create a `_projects` directory (or empty it if already exists)...
 directory "src/_projects" do
   # ...and for each of the works stored online...
   dato.projects.each_with_index do |project, index|
